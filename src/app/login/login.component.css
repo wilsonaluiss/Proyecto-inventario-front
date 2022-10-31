@@ -1,0 +1,68 @@
+/* app/styles.css */
+
+* {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    background: #ecf0f3;
+    
+  }
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color:rgb(10, 10, 10);
+    line: height 300px;
+  }
+  .custom-form {
+    min-width: 300px;
+    max-width: 60%;
+    margin: 0px auto;
+    background: rgba(243, 239, 239, 0.15);
+    padding: 2rem 3rem;
+    margin: auto;
+    border-radius: 2.5rem;
+    background-color: #097ed8;
+    box-shadow: 13px 13px 20px #ebecee, -13px -13px 20px #e5e9f1;
+    color: rgb(173, 42, 42);
+    margin-top: 10rem;
+    text-align: center;
+
+  }
+  .custom-form input {
+    display: block;
+    margin: 2rem 0;
+   border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(136, 241, 248, 0.979), inset 5px 5px 10px
+        rgb(250, 253, 253);
+    background: #fcfdfc;
+  }
+  .custom-form button {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #050a04;
+    font-weight: bold;
+    background-color: #0362df;
+    width: 100%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #73f079;
+    cursor: pointer;
+  }
+
+.imagen{
+
+    width: 200px;
+    border-radius: 0.5rem;
+    box-shadow: 13px 13px 20px #032861, -13px -13px 20px #35f704;
+    border: none;
+}
+
+    
