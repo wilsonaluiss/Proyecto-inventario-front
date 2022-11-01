@@ -93,4 +93,9 @@ export class ServiceService {
     });
   }
 
+  getPlacesByQuery(query: string) {
+    this.http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${ query }.json?country=gt&limit=7&proximity=-90.47551232433844%2C14.576682090182572&types=place%2Cpostcode%2Caddress&language=es&access_token=pk.eyJ1IjoiYXdpYWxsdWlzIiwiYSI6ImNsOXJlNTFqcjExdWEzb28wM2txNDN5amgifQ.W2N2GExzVRktPcT-leOPxw`)
+      .subscribe(console.log); // <--- this is the important line
+  }
+
 }

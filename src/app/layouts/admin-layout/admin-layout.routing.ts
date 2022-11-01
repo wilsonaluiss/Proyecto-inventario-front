@@ -4,6 +4,7 @@ import { DashboardComponent } from "src/app/dashboard/dashboard.component";
 import { IconsComponent } from "src/app/icons/icons.component";
 import { InventarioComponent } from "src/app/inventario/inventario.component";
 import { MovimientoProductoComponent } from "src/app/movimiento-producto/movimiento-producto.component";
+import { ProductosComponent } from "src/app/productos/productos.component";
 import { TrasladoBodegaComponent } from "src/app/traslado-bodega/traslado-bodega.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,5 +16,6 @@ export const AdminLayoutRoutes: Routes = [
   
     { path: 'movimientoProducto',      component: MovimientoProductoComponent },
     { path: 'trasladoBodega',          component: TrasladoBodegaComponent },
+    { path: 'productos',          component: ProductosComponent },
     
 ];

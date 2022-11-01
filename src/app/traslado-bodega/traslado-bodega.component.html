@@ -96,6 +96,7 @@
                                         <app-loading *ngIf="!isUserLocationReady; else mapReady"></app-loading>
                                         <ng-template #mapReady>
                                             <app-map-view></app-map-view>
+                                            <app-search-bar></app-search-bar>
                                         </ng-template>
                                     </div>
 

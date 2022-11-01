@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   BASE_URL_INVENTARIO: 'http://localhost:8080/',
+  apiKey: 'pk.eyJ1IjoiYXdpYWxsdWlzIiwiYSI6ImNsOXJlNTFqcjExdWEzb28wM2txNDN5amgifQ.W2N2GExzVRktPcT-leOPxw' // <-- add this line
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

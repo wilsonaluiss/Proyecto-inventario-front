@@ -1,0 +1,8 @@
+.search-container{
+    position: absolute;
+    top:60px;
+    left: 20px;
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 5px;
+}

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../services/service.service';
 import * as moment from 'moment';
 import { NgxSpinnerService }  from 'ngx-spinner';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bodega',
@@ -22,8 +23,6 @@ export class BodegaComponent implements OnInit {
       direccion: new FormControl('', [Validators.required]),
     });
    }
-
-  
 
    ngOnInit() {
   }
@@ -47,9 +46,23 @@ export class BodegaComponent implements OnInit {
       this.service.postData(this.service.BASE_URL_INVENTARIO, 'bodega/crear', bodega).subscribe((response: any) => {
           console.log(response);
           this.limpiarFormulario();
+          Swal.fire({
+            titleText: `Se ha almacenado la información con éxito.`,
+            icon: 'success',
+            showCloseButton: true,
+            showConfirmButton: false
+          });
+          this.limpiarFormulario();
         });
     } catch (error) {
       console.log(error);
+      return Swal.fire({
+        titleText: `Error al registrar datos, por favor intente en otro momento.`,
+        icon: 'error',
+        showCloseButton: true,
+        showConfirmButton: false
+      });
+      this.spinner.hide();
     }
   }
 }

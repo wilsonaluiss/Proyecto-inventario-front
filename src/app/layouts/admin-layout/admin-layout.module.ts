@@ -17,6 +17,11 @@ import {MatInputModule} from '@angular/material/input';
 import { TrasladoBodegaComponent } from 'src/app/traslado-bodega/traslado-bodega.component';
 import { LoadingComponent } from 'src/app/traslado-bodega/components/loading/loading.component';
 import { MapViewComponent } from 'src/app/traslado-bodega/components/map-view/map-view.component';
+import { HttpClientModule } from '@angular/common/http'; 
+import { SearchBarComponent } from 'src/app/traslado-bodega/components/search-bar/search-bar.component';
+import { ProductosComponent } from 'src/app/productos/productos.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 
@@ -32,6 +37,9 @@ import { MapViewComponent } from 'src/app/traslado-bodega/components/map-view/ma
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    HttpClientModule,
+    MatSlideToggleModule,
+    MatSliderModule
   ],
   declarations: [
     DashboardComponent,
@@ -41,7 +49,9 @@ import { MapViewComponent } from 'src/app/traslado-bodega/components/map-view/ma
     MovimientoProductoComponent,
     TrasladoBodegaComponent,
     LoadingComponent,
-    MapViewComponent
+    MapViewComponent,
+    SearchBarComponent,
+    ProductosComponent
 
   ]
 })

@@ -12,6 +12,7 @@ export const routesADMIN : RouteInfo[] = [
   { path: '/home/inventario', title: 'Inventario',  icon:'view_list', class: '' },
   { path: '/home/movimientoProducto', title: 'MovimientoProducto',  icon:'view_in_ar', class: '' },
   { path: '/home/trasladoBodega', title: 'TrasladoBodega',  icon:'multiple_stop', class: '' },
+  { path: '/home/productos', title: 'Productos',  icon:'view_list', class: '' },
 
 ];
 
