@@ -1,9 +1,10 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { LoginComponent } from "./login/login.component";
-import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { CommonModule } from "@angular/common";
-import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from '@angular/core';
+import { CommonModule, } from '@angular/common';
+import { BrowserModule  } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import {LoginComponent} from './Login/Login.component';
 
 const routes: Routes =[
  

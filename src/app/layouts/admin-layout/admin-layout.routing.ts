@@ -14,6 +14,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'inventario',     component: InventarioComponent },
   
     { path: 'movimientoProducto',      component: MovimientoProductoComponent },
-    { path: 'trasladoBodega',          component: TrasladoBodegaComponent},
+    { path: 'trasladoBodega',          component: TrasladoBodegaComponent },
     
 ];
