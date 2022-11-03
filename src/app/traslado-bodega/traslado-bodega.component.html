@@ -11,16 +11,7 @@
                       <div class="row">
                           <div class="col-md-12">
                               <div class="row">
-                                    <div class="col-md-9">
-                                      <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Descripcion"type="textarea">
-                                      </mat-form-field>
-                                  </div>
-                                  <div class="col-md-3">
-                                      <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Fecha" type="date">
-                                      </mat-form-field>
-                                  </div>
+                               
                                     <div class="col-md-9">
                                       <mat-form-field appearance="fill">
                                         <mat-label>Productos</mat-label>
@@ -44,10 +35,10 @@
                               <div class ="row">
                                   <mat-form-field appearance="fill">
                                       <mat-label>Bodegas</mat-label>
-                                      <mat-select [(value)]="selectBodegaSalida">
+                                      <mat-select [(value)]="selectBodegaSalida"  (selectionChange)="doSomething($event,1)">
                                         <mat-option *ngFor="let bodega of bodegaFilter" 
                                           [value]="bodega.id_Bodega" 
-                                          (onSelectionChange)="selectBodega(bodega,1)">
+                                         >
                                           {{ bodega.nombre }}
                                         </mat-option>
                                       </mat-select>
@@ -57,7 +48,7 @@
                               </div>
                               <div class ="row">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Existencia" type="number" [value]="exitenciaB1" readonly>
+                                      <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB1" readonly>
                                     </mat-form-field>
                               </div>
                               <div class ="row">
@@ -79,10 +70,9 @@
                                   <mat-form-field appearance="fill">
                                       <mat-label>Bodegas</mat-label>
                                       
-                                       <mat-select [(value)]="selectBodegaIngreso">
+                                       <mat-select [(value)]="selectBodegaIngreso"  (selectionChange)="doSomething($event,2)">
                                         <mat-option *ngFor="let bodega2 of bodegaFilter" 
-                                          [value]="bodega2.id_Bodega" 
-                                          (onSelectionChange)="selectBodega(bodega2,2)">
+                                          [value]="bodega2.id_Bodega">
                                           {{ bodega2.nombre }}
                                         </mat-option>
                                       </mat-select>
@@ -91,7 +81,7 @@
   
                               <div class ="row">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Existencia" type="number" [value]="exitenciaB2" readonly>
+                                      <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB2" readonly>
                                     </mat-form-field>
                               </div>
                           </div>

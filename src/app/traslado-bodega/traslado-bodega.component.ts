@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ServiceService } from '../services/service.service';
 import { HttpClient } from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-traslado-bodega',
   templateUrl: './traslado-bodega.component.html',
@@ -19,7 +19,7 @@ export class TrasladoBodegaComponent implements OnInit {
   bodegas :any []=[];
   bodegaFilter : any []=[];
   productos :any []=[];
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient, private spinner: NgxSpinnerService) { }
 
 ngOnInit() {
    this.getProductos();
@@ -54,16 +54,30 @@ selectProducto(producto:any){
 }
 
 selectBodega(bodega:any, option:number){
+  console.log(bodega);
   if(option==1){
     this.exitenciaB1 =  bodega.existencias;
-    this.selectBodegaSalida = bodega.id_Bodega;
+  //  this.selectBodegaSalida = bodega.id_Bodega;
   }else{
     this.exitenciaB2 =  bodega.existencias;
-    this.selectBodegaIngreso = bodega.id_Bodega;
+   // this.selectBodegaIngreso = bodega.id_Bodega;
   }
+}
+doSomething(e, option:number){
+  let bodega=this.bodegaFilter.filter(b=>b.id_Bodega==e.value)[0];
+  if(option==1){
+    this.exitenciaB1 =  bodega.existencias;
+  //  this.selectBodegaSalida = bodega.id_Bodega;
+  }else{
+    this.exitenciaB2 =  bodega.existencias;
+   // this.selectBodegaIngreso = bodega.id_Bodega;
+  }
+
 }
 
 realizarTraslado(){
+
+  
   let objtraslado = {
     "IdBodegaOrigen":this.selectBodegaSalida,
     "IdBodegaDestino":this.selectBodegaIngreso,
@@ -72,10 +86,24 @@ realizarTraslado(){
   }
   console.log(objtraslado)
   this.http.post("http://localhost:8080/inventario/traslado",objtraslado).subscribe((resp:any)=>{
-    if(!resp){
+  
+  if(!resp){
+      
           console.log("error no se realizo el traslado")
+          return Swal.fire({
+            titleText: `error no se realizo el traslado`,
+            icon: 'error',
+            showCloseButton: true,
+            showConfirmButton: false
+          });
       }
         else{
+          Swal.fire({
+            titleText: `Se realizo el traslado.`,
+            icon: 'success',
+            showCloseButton: true,
+            showConfirmButton: false
+          });
           console.log(resp)
           console.log("Se realizo el traslado")
         }
@@ -90,6 +118,9 @@ limpiar(){
   this.selectBodegaSalida="";
   this.exitenciaB1=0;
   this.exitenciaB2=0;
+  this.getProductos();
+  this.getBodegas();
+
 }
 
 }
