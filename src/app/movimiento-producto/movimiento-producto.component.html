@@ -13,16 +13,20 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <mat-form-field appearance="standard">
-                                            <mat-label>Producto</mat-label>
-                                            <input matInput (keyup)="applyFilter($event)" placeholder="Producto" #input>
-                                          </mat-form-field>
+                                        <mat-form-field class="example-full-width">
+                                             <input matInput placeholder="Nombre" type="text" [(ngModel)]="filtroProducto">
+                                        </mat-form-field>
+                                      </div>
+                                      <div class="col-md-12">
+                                        <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="Bodega" type="text" [(ngModel)]="filtroBodega">
+                                        </mat-form-field>
                                       </div>
                                 </div>
                             </div>
                             <div class="col-md-6 align-self-center">
                                 <div class ="row justify-content-center">
-                                        <button mat-raised-button type="submit" class="btn btn-success">
+                                        <button mat-raised-button type="submit" class="btn btn-success" (click)="filtrar()">
                                             <i class="material-icons">search</i>
                                                 Buscar
                                             </button>
@@ -37,19 +41,20 @@
                             <table class="table table-bordered">
                                 <thead class="card-header-success">
 
+                                    <th>  Bodega </th>
                                     <th>  Nombre del Producto </th>
-                                    <th> Cantidad producto </th>
                                     <th>  Tipo Movimiento </th>
+                                    <th> Cantidad producto </th>
                                     <th> Fecha </th>
 
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> 5 </td>
-                                        <td> Venta </td>
-                                        <td>  05/10/2022 </td>
-
+                                    <tr *ngFor="let item of MovimientosFilter">
+                                        <td> {{ item.nombreBodega }} </td>
+                                        <td> {{ item.nombreProducto }} </td>
+                                        <td> {{ item.tipoMovimiento }}</td>
+                                        <td> {{ item.cantidadProducto }} </td>
+                                        <td>  {{ item.fecha }} </td>
                                     </tr>
                                 </tbody>
 

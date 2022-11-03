@@ -76,7 +76,30 @@ doSomething(e, option:number){
 }
 
 realizarTraslado(){
+if(this.cantidad<=0){
+  return Swal.fire({
+    titleText: `cantidad incorrecta `,
+    icon: 'error',
+    showCloseButton: true,
+    showConfirmButton: false
+  });
+  
+}else if(this.cantidad > this.exitenciaB1){
+  return Swal.fire({
+    titleText: `error se excede a la cantidad de la existencia `,
+    icon: 'error',
+    showCloseButton: true,
+    showConfirmButton: false
+  });
+ }else if(this.selectBodegaIngreso==this.selectBodegaSalida){
+  return Swal.fire({
+    titleText: `error no se puede  realizar traslado en la misma bodega `,
+    icon: 'error',
+    showCloseButton: true,
+    showConfirmButton: false
+  });
 
+ }
   
   let objtraslado = {
     "IdBodegaOrigen":this.selectBodegaSalida,
