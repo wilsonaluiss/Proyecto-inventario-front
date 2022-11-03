@@ -10,3 +10,16 @@ table {
   td, th {
     width: 25%;
   }
+
+  
+  .noHayExistencias {
+    color:white;
+    background-color:red;
+}
+
+.existencia {
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    background-color: green;
+}
