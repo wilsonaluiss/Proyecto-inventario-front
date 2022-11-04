@@ -1,96 +1,95 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Traslado De Bodega</h4>
-                        <p class="card-category">Traslados de una bodega a otra </p>
-                    </div>
-                    <div class="card-body">
-                      <div class="row">
-                          <div class="col-md-12">
-                              <div class="row">
-                               
-                                    <div class="col-md-9">
-                                      <mat-form-field appearance="fill">
-                                        <mat-label>Productos</mat-label>
-                                        <mat-select [(value)]="selectedProducto">
-                                          <mat-option *ngFor="let producto of productos" [value]="producto.id_Producto" (onSelectionChange)="selectProducto(producto)">
-                                            {{ producto.nombre }}
-                                          </mat-option>
-    
-                                        </mat-select>
-                                      </mat-form-field>
-                                    </div>
-                                 
-                                  
-  
-                              </div>
-                          </div>
-                      </div>
-                      <hr/>
-                      <div class = "row" >
-                          <div class="col-md-5">
-                              <div class ="row">
-                                  <mat-form-field appearance="fill">
-                                      <mat-label>Bodegas</mat-label>
-                                      <mat-select [(value)]="selectBodegaSalida"  (selectionChange)="doSomething($event,1)">
-                                        <mat-option *ngFor="let bodega of bodegaFilter" 
-                                          [value]="bodega.id_Bodega" 
-                                         >
-                                          {{ bodega.nombre }}
-                                        </mat-option>
-                                      </mat-select>
-                                    </mat-form-field>
-                                    
-                          
-                              </div>
-                              <div class ="row">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB1" readonly>
-                                    </mat-form-field>
-                              </div>
-                              <div class ="row">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Cantidad" type="number" [(ngModel)]="cantidad">
-                                    </mat-form-field>
-                              </div>
-  
-                              
-  
-                          </div>
-                          <div class="col-md-2">
-  
-                              <button type="submit" class="btn btn-success" (click)="realizarTraslado();"><i class="material-icons">trending_flat</i> Enviar </button>
-  
-                          </div>
-                          <div class="col-md-5">
-                              <div class ="row">
-                                  <mat-form-field appearance="fill">
-                                      <mat-label>Bodegas</mat-label>
-                                      
-                                       <mat-select [(value)]="selectBodegaIngreso"  (selectionChange)="doSomething($event,2)">
-                                        <mat-option *ngFor="let bodega2 of bodegaFilter" 
-                                          [value]="bodega2.id_Bodega">
-                                          {{ bodega2.nombre }}
-                                        </mat-option>
-                                      </mat-select>
-                                    </mat-form-field>
-                              </div>
-  
-                              <div class ="row">
-                                  <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB2" readonly>
-                                    </mat-form-field>
-                              </div>
-                          </div>
-                          
-                      </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Traslado De Bodega</h4>
+            <p class="card-category">Traslados de una bodega a otra </p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+
+                  <div class="col-md-9">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Productos</mat-label>
+                      <mat-select [(value)]="selectedProducto">
+                        <mat-option *ngFor="let producto of productos" [value]="producto.id_Producto"
+                          (onSelectionChange)="selectProducto(producto)">
+                          {{ producto.nombre }}
+                        </mat-option>
+
+                      </mat-select>
+                    </mat-form-field>
                   </div>
+
+
+
                 </div>
+              </div>
             </div>
+            <hr />
+            <div class="row">
+              <div class="col-md-5">
+                <div class="row">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Bodegas</mat-label>
+                    <mat-select [(value)]="selectBodegaSalida" (selectionChange)="doSomething($event,1)">
+                      <mat-option *ngFor="let bodega of bodegaFilter" [value]="bodega.id_Bodega">
+                        {{ bodega.nombre }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+                </div>
+                <div class="row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB1" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Cantidad" type="number" [(ngModel)]="cantidad">
+                  </mat-form-field>
+                </div>
+
+
+
+              </div>
+              <div class="col-md-2">
+
+                <button type="submit" class="btn btn-success" (click)="realizarTraslado();"><i
+                    class="material-icons">trending_flat</i> Enviar </button>
+
+              </div>
+              <div class="col-md-5">
+                <div class="row">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Bodegas</mat-label>
+
+                    <mat-select [(value)]="selectBodegaIngreso" (selectionChange)="doSomething($event,2)">
+                      <mat-option *ngFor="let bodega2 of bodegaFilter" [value]="bodega2.id_Bodega">
+                        {{ bodega2.nombre }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Existencia" type="number" [(ngModel)]="exitenciaB2" readonly>
+                  </mat-form-field>
+                </div>
+              </div>
+
+            </div>
+            
+          </div>
         </div>
+      </div>
     </div>
   </div>
-  
+</div>

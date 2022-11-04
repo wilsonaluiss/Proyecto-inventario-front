@@ -48,17 +48,50 @@
                                         formControlName="estado">
                                         {{estado.checked ? 'Activo' : 'Inactivo'}}
                                     </mat-slide-toggle>
-        
+
                                 </div>
                             </div>
 
                             <button mat-raised-button type="submit" class="btn btn-danger pull-right">Regresar</button>
                             <button mat-raised-button type="button" class="btn btn-success pull-right"
-                            [disabled]="productoFormgroup.invalid"
-                                (click)="guardarProducto()">Crear</button>
+                                [disabled]="productoFormgroup.invalid" (click)="guardarProducto()">Crear</button>
+                            <button mat-raised-button type="button" class="btn btn-info pull-right"
+                                [disabled]="productoFormgroup.invalid" (click)="actualizarProducto()">Actualizar</button>
 
                             <!-- <div class="clearfix"></div> -->
                         </form>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="card-header-success">
+
+                                    <th> Codigo Producto </th>
+                                    <th> Nombre Producto </th>
+                                    <th> Descripcion </th>
+                                    <th> Precio </th>
+                                    <th> Modificar </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of productos">
+                                        <td>{{item.idProducto}}</td>
+                                        <td>{{item.nombre}}</td>
+                                        <td>{{item.descripcion}}</td>
+                                        <td>{{item.precio}}</td>
+                                        <td>
+                                           <button mat-raised-button type="button" class="btn btn-success pull-right"
+                                                (click)="editarProducto(item)">Editar</button>
+                                            <!-- <button mat-raised-button type="button" class="btn btn-danger pull-right"
+                                                (click)="eliminarProducto(item.idProducto)">Eliminar</button> -->
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

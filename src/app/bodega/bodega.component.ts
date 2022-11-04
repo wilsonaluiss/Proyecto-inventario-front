@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 export class BodegaComponent implements OnInit {
 
   bodegaFormgroup: FormGroup;
+  bodegas: any[] = [];
+  bodegasfilter: any[] = [];
 
   constructor(
     private service: ServiceService,
@@ -21,10 +23,18 @@ export class BodegaComponent implements OnInit {
     this.bodegaFormgroup = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required]),
+      estado: new FormControl('', [Validators.required]),
     });
    }
 
    ngOnInit() {
+    this.spinner.show();
+    this.service.getData(this.service.BASE_URL_INVENTARIO, '/obtenerBodega').subscribe((response: any) => {
+      this.bodegas = response;
+      console.log('son las bodegas',this.bodegas);
+      console.log(response);
+      this.spinner.hide();
+    });
   }
 
   limpiarFormulario(){
@@ -56,13 +66,20 @@ export class BodegaComponent implements OnInit {
         });
     } catch (error) {
       console.log(error);
+      this.spinner.hide();
       return Swal.fire({
         titleText: `Error al registrar datos, por favor intente en otro momento.`,
         icon: 'error',
         showCloseButton: true,
-        showConfirmButton: false
+        showConfirmButton: false,
       });
-      this.spinner.hide();
+      
     }
+  }
+
+  editarBodega(bodega: any){
+    this.bodegaFormgroup.get('nombre').setValue(bodega.nombre);
+    this.bodegaFormgroup.get('direccion').setValue(bodega.direccion);
+    this.bodegaFormgroup.get('estado').setValue(bodega.estado === 'activo'? true : false);
   }
 }

@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./traslado-bodega.component.css']
 })
 export class TrasladoBodegaComponent implements OnInit {
+
+  get isUserLocationReady(){
+    return this.service.isUserLocationReady;
+  }
   selectBodegaSalida = '';
   selectBodegaIngreso = '';
   selectedProducto = "";
@@ -19,7 +23,8 @@ export class TrasladoBodegaComponent implements OnInit {
   bodegas :any []=[];
   bodegaFilter : any []=[];
   productos :any []=[];
-constructor(private http: HttpClient, private spinner: NgxSpinnerService) { }
+constructor(private http: HttpClient, private spinner: NgxSpinnerService, 
+  private service: ServiceService,) { }
 
 ngOnInit() {
    this.getProductos();
